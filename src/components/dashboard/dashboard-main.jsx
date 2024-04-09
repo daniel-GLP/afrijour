@@ -1,5 +1,6 @@
 import React from "react";
 import "./dashboard-layout.css";
+import { CChart } from "@coreui/react-chartjs";
 import {
   MdOutlineInventory,
   MdSpaceDashboard,
@@ -27,6 +28,9 @@ import { Link } from "react-router-dom";
 import sabinet from "../../assets/repositories/sabinet.png";
 import ajol from "../../assets/repositories/ajol.png";
 import DonutChart from "./dashboard-pages/dashboard-graph-components/Donut";
+import LanguagesBarChart from "./dashboard-pages/dashboard-graph-components/LanguagesBarChart";
+import IndexersChart from "./dashboard-pages/dashboard-graph-components/CountriesChart";
+import CountriesChart from "./dashboard-pages/dashboard-graph-components/CountriesChart";
 
 // Main navigation links
 const mainNavLinks = [
@@ -60,19 +64,127 @@ const iconMapping = {
   LuNewspaper: LuNewspaper,
 };
 
-
 const data = [
-  ["Journal 1", "Author 1", "2024-02-18", "Science", 25, "experiment, research, analysis", "Yes", "doi:10.1234/abcd.5678"],
-  ["Journal 2", "Author 2", "2024-02-17", "Medicine", 42, "clinical trial, treatment, patients", "Yes", "doi:10.5678/efgh.9012"],
-  ["Journal 3", "Author 3", "2024-02-16", "Psychology", 18, "behavior, mind, therapy", "Yes", "doi:10.9012/ijkl.3456"],
-  ["Journal 4", "Author 4", "2024-02-15", "Engineering", 36, "design, innovation, technology", "Yes", "doi:10.3456/mnop.7890"],
-  ["Journal 5", "Author 5", "2024-02-14", "Economics", 30, "market, finance, trade", "Yes", "doi:10.6789/qrst.1234"],
-  ["Journal 6", "Author 6", "2024-02-13", "Education", 22, "learning, teaching, curriculum", "Yes", "doi:10.2345/uvwx.5678"],
-  ["Journal 7", "Author 7", "2024-02-12", "History", 14, "events, culture, society", "Yes", "doi:10.5678/yzab.9012"],
-  ["Journal 8", "Author 8", "2024-02-11", "Environmental Science", 28, "climate, ecosystem, pollution", "Yes", "doi:10.9012/cdef.3456"],
-  ["Journal 9", "Author 9", "2024-02-10", "Sociology", 20, "community, identity, inequality", "Yes", "doi:10.3456/ghij.7890"],
-  ["Journal 10", "Author 10", "2024-02-09", "Political Science", 35, "government, policy, democracy", "Yes", "doi:10.6789/klmn.1234"],
-  ["Journal 11", "Author 11", "2024-02-08", "Art", 19, "creativity, expression, aesthetics", "Yes", "doi:10.2345/opqr.5678"]
+  [
+    "Journal 1",
+    "Author 1",
+    "2024-02-18",
+    "Science",
+    25,
+    "experiment, research, analysis",
+    "Yes",
+    "doi:10.1234/abcd.5678",
+    "English",
+    "Nigeria",
+  ],
+  [
+    "Journal 2",
+    "Author 2",
+    "2024-02-17",
+    "Medicine",
+    42,
+    "clinical trial, treatment, patients",
+    "Yes",
+    "doi:10.5678/efgh.9012",
+    "English",
+    "Kenya",
+  ],
+  [
+    "Journal 3",
+    "Author 3",
+    "2024-02-16",
+    "Psychology",
+    18,
+    "behavior, mind, therapy",
+    "Yes",
+    "doi:10.9012/ijkl.3456",
+    "Swahili",
+    "Tanzania",
+  ],
+  [
+    "Journal 4",
+    "Author 4",
+    "2024-02-15",
+    "Engineering",
+    36,
+    "design, innovation, technology",
+    "Yes",
+    "doi:10.3456/mnop.7890",
+    "French",
+    "Cameroon",
+  ],
+  [
+    "Journal 5",
+    "Author 5",
+    "2024-02-14",
+    "Economics",
+    30,
+    "market, finance, trade",
+    "Yes",
+    "doi:10.6789/qrst.1234",
+    "Zulu",
+    "South Africa",
+  ],
+  [
+    "Journal 6",
+    "Author 6",
+    "2024-02-13",
+    "Education",
+    22,
+    "learning, teaching, curriculum",
+    "Yes",
+    "doi:10.2345/uvwx.5678",
+    "Swahili",
+    "Kenya",
+  ],
+  [
+    "Journal 7",
+    "Author 7",
+    "2024-02-12",
+    "History",
+    14,
+    "events, culture, society",
+    "Yes",
+    "doi:10.5678/yzab.9012",
+    "English",
+    "Ghana",
+  ],
+  [
+    "Journal 8",
+    "Author 8",
+    "2024-02-11",
+    "Environmental Science",
+    28,
+    "climate, ecosystem, pollution",
+    "Yes",
+    "doi:10.9012/cdef.3456",
+    "French",
+    "Ivory Coast",
+  ],
+  [
+    "Journal 9",
+    "Author 9",
+    "2024-02-10",
+    "Sociology",
+    20,
+    "community, identity, inequality",
+    "Yes",
+    "doi:10.3456/ghij.7890",
+    "English",
+    "South Africa",
+  ],
+  [
+    "Journal 10",
+    "Author 10",
+    "2024-02-09",
+    "Political Science",
+    35,
+    "government, policy, democracy",
+    "Yes",
+    "doi:10.6789/klmn.1234",
+    "French",
+    "Senegal",
+  ],
 ];
 
 const DashboardMain = () => {
@@ -213,6 +325,78 @@ const DashboardMain = () => {
                 className="mb-2 text-xl tracking-tight text-gray-900 dark:text-white"
                 style={{ color: "#585859" }}
               >
+                # African Countries
+              </h5>
+
+              <p
+                className="mb-3 font-normal text-gray-700 dark:text-gray-400"
+                style={{ color: "#7DB8DA", fontSize: "3rem" }}
+              >
+                <a
+                  href={"/journals"}
+                  // className="inline-flex items-center rounded-lg px-3 py-2 text-center text-sm  hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  7
+                </a>
+              </p>
+            </div>
+          </div>
+          <div className="mt-4 max-w-xsm align-middle text-center rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
+            <div className="p-5">
+              <h5
+                className="mb-2 text-xl tracking-tight text-gray-900 dark:text-white"
+                style={{ color: "#585859" }}
+              >
+                # Languages
+              </h5>
+
+              <p
+                className="mb-3 font-normal text-gray-700 dark:text-gray-400"
+                style={{ color: "#7DB8DA", fontSize: "3rem" }}
+              >
+                <a
+                  href={"/journals"}
+                  // className="inline-flex items-center rounded-lg px-3 py-2 text-center text-sm  hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  5
+                </a>
+              </p>
+            </div>
+          </div>
+          <div className="mt-4 max-w-xsm align-middle text-center rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
+            <div className="p-5">
+              <h5
+                className="mb-2 text-xl tracking-tight text-gray-900 dark:text-white"
+                style={{ color: "#585859" }}
+              >
+                # Repositories
+              </h5>
+
+              <p
+                className="mb-3 font-normal text-gray-700 dark:text-gray-400"
+                style={{ color: "#7DB8DA", fontSize: "3rem" }}
+              >
+                <a
+                  href={"/journals"}
+                  // className="inline-flex items-center rounded-lg px-3 py-2 text-center text-sm  hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  3
+                </a>
+              </p>
+            </div>
+          </div>
+          <div className="mt-4 max-w-xsm align-middle text-center rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
+            <div className="p-5">
+              <h5
+                className="mb-2 text-xl tracking-tight text-gray-900 dark:text-white"
+                style={{ color: "#585859" }}
+              >
                 # Indexers
               </h5>
 
@@ -237,7 +421,7 @@ const DashboardMain = () => {
                 className="mb-2 text-xl tracking-tight text-gray-900 dark:text-white"
                 style={{ color: "#585859" }}
               >
-                # Reviewers
+                # Visitors
               </h5>
 
               <p
@@ -250,7 +434,7 @@ const DashboardMain = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  7
+                  1.93k
                 </a>
               </p>
             </div>
@@ -261,7 +445,7 @@ const DashboardMain = () => {
                 className="mb-2 text-xl tracking-tight text-gray-900 dark:text-white"
                 style={{ color: "#585859" }}
               >
-                # Repositories
+                # Downloads
               </h5>
 
               <p
@@ -274,79 +458,7 @@ const DashboardMain = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  7
-                </a>
-              </p>
-            </div>
-          </div>
-          <div className="mt-4 max-w-xsm align-middle text-center rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
-            <div className="p-5">
-              <h5
-                className="mb-2 text-xl tracking-tight text-gray-900 dark:text-white"
-                style={{ color: "#585859" }}
-              >
-                # Viewers
-              </h5>
-
-              <p
-                className="mb-3 font-normal text-gray-700 dark:text-gray-400"
-                style={{ color: "#7DB8DA", fontSize: "3rem" }}
-              >
-                <a
-                  href={"/journals"}
-                  // className="inline-flex items-center rounded-lg px-3 py-2 text-center text-sm  hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  7
-                </a>
-              </p>
-            </div>
-          </div>
-          <div className="mt-4 max-w-xsm align-middle text-center rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
-            <div className="p-5">
-              <h5
-                className="mb-2 text-xl tracking-tight text-gray-900 dark:text-white"
-                style={{ color: "#585859" }}
-              >
-                # Viewers
-              </h5>
-
-              <p
-                className="mb-3 font-normal text-gray-700 dark:text-gray-400"
-                style={{ color: "#7DB8DA", fontSize: "3rem" }}
-              >
-                <a
-                  href={"/journals"}
-                  // className="inline-flex items-center rounded-lg px-3 py-2 text-center text-sm  hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  7
-                </a>
-              </p>
-            </div>
-          </div>
-          <div className="mt-4 max-w-xsm align-middle text-center rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
-            <div className="p-5">
-              <h5
-                className="mb-2 text-xl tracking-tight text-gray-900 dark:text-white"
-                style={{ color: "#585859" }}
-              >
-                # Viewers
-              </h5>
-
-              <p
-                className="mb-3 font-normal text-gray-700 dark:text-gray-400"
-                style={{ color: "#7DB8DA", fontSize: "3rem" }}
-              >
-                <a
-                  href={"/journals"}
-                  // className="inline-flex items-center rounded-lg px-3 py-2 text-center text-sm  hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  7
+                  0.78k
                 </a>
               </p>
             </div>
@@ -360,7 +472,7 @@ const DashboardMain = () => {
                 className="mb-2 text-xl tracking-tight text-gray-900 dark:text-white"
                 style={{ color: "#585859" }}
               >
-                # Viewers
+                # Viewersd
               </h5>
 
               <p
@@ -383,7 +495,7 @@ const DashboardMain = () => {
               <div className="mt-4 max-w-xsm align-middle text-center rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
                 <div className="p-5">
                   <h5
-                    className="mb-2 text-xl tracking-tight text-gray-900 dark:text-white"
+                    className="mb-2 text-xs tracking-tight text-gray-900 dark:text-white"
                     style={{ color: "#585859" }}
                   >
                     Journals Disciplines Distribution
@@ -395,56 +507,36 @@ const DashboardMain = () => {
               <div className="mt-4 max-w-xsm align-middle text-center rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
                 <div className="p-5">
                   <h5
-                    className="mb-2 text-xl tracking-tight text-gray-900 dark:text-white"
+                    className="mb-2 text-xs tracking-tight text-gray-900 dark:text-white"
                     style={{ color: "#585859" }}
                   >
-                    # Viewers
+                    Journals Language Distribution
                   </h5>
 
                   <p
                     className="mb-3 font-normal text-gray-700 dark:text-gray-400"
                     style={{ color: "#7DB8DA", fontSize: "3rem" }}
                   >
-                    <a
-                      href={"/journals"}
-                      // className="inline-flex items-center rounded-lg px-3 py-2 text-center text-sm  hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      7
-                    </a>
+                    <LanguagesBarChart data={data} />
                   </p>
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-1 gap-1 ">
+            <div className="grid grid-cols-2 gap-1 ">
               <div className="mt-4 max-w-xsm align-middle text-center rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
                 <div className="p-5">
                   <h5
-                    className="mb-2 text-xl tracking-tight text-gray-900 dark:text-white"
+                    className="mb-2 text-xs tracking-tight text-gray-900 dark:text-white"
                     style={{ color: "#585859" }}
                   >
-                    # Viewers
+                    Journals Countries Distribution
                   </h5>
 
-                  <p
-                    className="mb-3 font-normal text-gray-700 dark:text-gray-400"
-                    style={{ color: "#7DB8DA", fontSize: "3rem" }}
-                  >
-                    <a
-                      href={"/journals"}
-                      // className="inline-flex items-center rounded-lg px-3 py-2 text-center text-sm  hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      7
-                    </a>
-                  </p>
+                  <CountriesChart data={data} />
                 </div>
               </div>
             </div>
           </div>
-          <DonutChart data={data} />
         </div>
 
         <FooterPanel />
