@@ -27,10 +27,10 @@ import FooterPanel from "./components/footer-panel";
 import { Link } from "react-router-dom";
 import sabinet from "../../assets/repositories/sabinet.png";
 import ajol from "../../assets/repositories/ajol.png";
-import DonutChart from "./dashboard-pages/dashboard-graph-components/Donut";
-import LanguagesBarChart from "./dashboard-pages/dashboard-graph-components/LanguagesBarChart";
-import IndexersChart from "./dashboard-pages/dashboard-graph-components/CountriesChart";
-import CountriesChart from "./dashboard-pages/dashboard-graph-components/CountriesChart";
+import DisciplinesDonutChart from "./dashboard-pages/dashboard-graph-components/DisciplinesDonutChart";
+import CountriesBarChart from "./dashboard-pages/dashboard-graph-components/CountriesBarChat";
+import IndexedOn from "./dashboard-pages/dashboard-graph-components/indexedOn";
+import LanguagesPieChart from "./dashboard-pages/dashboard-graph-components/LanguagesPieChart";
 
 // Main navigation links
 const mainNavLinks = [
@@ -105,7 +105,7 @@ const data = [
     "Journal 4",
     "Author 4",
     "2024-02-15",
-    "Engineering",
+    "Psychology",
     36,
     "design, innovation, technology",
     "Yes",
@@ -235,6 +235,7 @@ const DashboardMain = () => {
           </div>
         </div> */}
       </div>
+
       <div className="main-content">
         {/* Main Content */}
         {/* Breadcrumb navigation */}
@@ -298,10 +299,10 @@ const DashboardMain = () => {
           <div className="mt-4 max-w-xsm align-middle text-center rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
             <div className="p-5">
               <h5
-                className="mb-2 text-xl tracking-tight text-gray-900 dark:text-white"
+                className="mb-2 text-l tracking-tight text-gray-900 dark:text-white"
                 style={{ color: "#585859" }}
               >
-                # Journals
+                Journals
               </h5>
 
               <p
@@ -314,23 +315,24 @@ const DashboardMain = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  870
+                  873
                 </a>
               </p>
+              <hr style={{ border: "2px solid red" }} />
             </div>
           </div>
           <div className="mt-4 max-w-xsm align-middle text-center rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
             <div className="p-5">
               <h5
-                className="mb-2 text-xl tracking-tight text-gray-900 dark:text-white"
+                className="mb-2 text-l tracking-tight text-gray-900 dark:text-white"
                 style={{ color: "#585859" }}
               >
-                # African Countries
+                African Countries
               </h5>
 
               <p
                 className="mb-3 font-normal text-gray-700 dark:text-gray-400"
-                style={{ color: "#7DB8DA", fontSize: "3rem" }}
+                style={{ color: "#6762B4", fontSize: "3rem" }}
               >
                 <a
                   href={"/journals"}
@@ -341,20 +343,46 @@ const DashboardMain = () => {
                   7
                 </a>
               </p>
+              <hr style={{ border: "2px solid blue" }} />
             </div>
           </div>
           <div className="mt-4 max-w-xsm align-middle text-center rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
             <div className="p-5">
               <h5
-                className="mb-2 text-xl tracking-tight text-gray-900 dark:text-white"
+                className="mb-2 text-l tracking-tight text-gray-900 dark:text-white"
                 style={{ color: "#585859" }}
               >
-                # Languages
+                Abstracts
               </h5>
 
               <p
                 className="mb-3 font-normal text-gray-700 dark:text-gray-400"
-                style={{ color: "#7DB8DA", fontSize: "3rem" }}
+                style={{ color: "#6762B4", fontSize: "3rem" }}
+              >
+                <a
+                  href={"/journals"}
+                  // className="inline-flex items-center rounded-lg px-3 py-2 text-center text-sm  hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  1.45K
+                </a>
+              </p>
+              <hr style={{ border: "2px solid orange" }} />
+            </div>
+          </div>
+          <div className="mt-4 max-w-xsm align-middle text-center rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
+            <div className="p-5">
+              <h5
+                className="mb-2 text-l tracking-tight text-gray-900 dark:text-white"
+                style={{ color: "#585859" }}
+              >
+                Languages
+              </h5>
+
+              <p
+                className="mb-3 font-normal text-gray-700 dark:text-gray-400"
+                style={{ color: "#6762B4", fontSize: "3rem" }}
               >
                 <a
                   href={"/journals"}
@@ -365,20 +393,21 @@ const DashboardMain = () => {
                   5
                 </a>
               </p>
+              <hr style={{ border: "2px solid purple" }} />
             </div>
           </div>
           <div className="mt-4 max-w-xsm align-middle text-center rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
             <div className="p-5">
               <h5
-                className="mb-2 text-xl tracking-tight text-gray-900 dark:text-white"
+                className="mb-2 text-l tracking-tight text-gray-900 dark:text-white"
                 style={{ color: "#585859" }}
               >
-                # Repositories
+                Repositories
               </h5>
 
               <p
                 className="mb-3 font-normal text-gray-700 dark:text-gray-400"
-                style={{ color: "#7DB8DA", fontSize: "3rem" }}
+                style={{ color: "#6762B4", fontSize: "3rem" }}
               >
                 <a
                   href={"/journals"}
@@ -389,20 +418,21 @@ const DashboardMain = () => {
                   3
                 </a>
               </p>
+              <hr style={{ border: "2px solid red" }} />
             </div>
           </div>
           <div className="mt-4 max-w-xsm align-middle text-center rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
             <div className="p-5">
               <h5
-                className="mb-2 text-xl tracking-tight text-gray-900 dark:text-white"
+                className="mb-2 text-l tracking-tight text-gray-900 dark:text-white"
                 style={{ color: "#585859" }}
               >
-                # Indexers
+                Indexers
               </h5>
 
               <p
                 className="mb-3 font-normal text-gray-700 dark:text-gray-400"
-                style={{ color: "#7DB8DA", fontSize: "3rem" }}
+                style={{ color: "#6762B4", fontSize: "3rem" }}
               >
                 <a
                   href={"/journals"}
@@ -413,20 +443,22 @@ const DashboardMain = () => {
                   7
                 </a>
               </p>
+              <hr style={{ border: "2px solid #295BCF" }} />
             </div>
           </div>
+
           <div className="mt-4 max-w-xsm align-middle text-center rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
             <div className="p-5">
               <h5
-                className="mb-2 text-xl tracking-tight text-gray-900 dark:text-white"
+                className="mb-2 text-l tracking-tight text-gray-900 dark:text-white"
                 style={{ color: "#585859" }}
               >
-                # Visitors
+                Reviewers
               </h5>
 
               <p
                 className="mb-3 font-normal text-gray-700 dark:text-gray-400"
-                style={{ color: "#7DB8DA", fontSize: "3rem" }}
+                style={{ color: "#6762B4", fontSize: "3rem" }}
               >
                 <a
                   href={"/journals"}
@@ -434,33 +466,10 @@ const DashboardMain = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  1.93k
+                  433
                 </a>
               </p>
-            </div>
-          </div>
-          <div className="mt-4 max-w-xsm align-middle text-center rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
-            <div className="p-5">
-              <h5
-                className="mb-2 text-xl tracking-tight text-gray-900 dark:text-white"
-                style={{ color: "#585859" }}
-              >
-                # Downloads
-              </h5>
-
-              <p
-                className="mb-3 font-normal text-gray-700 dark:text-gray-400"
-                style={{ color: "#7DB8DA", fontSize: "3rem" }}
-              >
-                <a
-                  href={"/journals"}
-                  // className="inline-flex items-center rounded-lg px-3 py-2 text-center text-sm  hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  0.78k
-                </a>
-              </p>
+              <hr style={{ border: "2px solid green" }} />
             </div>
           </div>
         </div>
@@ -469,30 +478,42 @@ const DashboardMain = () => {
           <div className="mt-4 max-w-xsm align-middle text-center rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
             <div className="p-5">
               <h5
-                className="mb-2 text-xl tracking-tight text-gray-900 dark:text-white"
+                className="mb-2 text-xs tracking-tight text-gray-900 dark:text-white"
                 style={{ color: "#585859" }}
               >
-                # Viewersd
+                Journals Distribution per Country
               </h5>
 
-              <p
-                className="mb-3 font-normal text-gray-700 dark:text-gray-400"
-                style={{ color: "#7DB8DA", fontSize: "3rem" }}
-              >
-                <a
-                  href={"/journals"}
-                  // className="inline-flex items-center rounded-lg px-3 py-2 text-center text-sm  hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  7
-                </a>
-              </p>
+              <CountriesBarChart data={data} />
             </div>
           </div>
-          <div className="mt-4 max-w-xsm align-middle text-center rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
-            <div className="grid grid-cols-2 gap-1 ">
-              <div className="mt-4 max-w-xsm align-middle text-center rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
+          <div className="mt-4 max-w-xsm max-h-max ">
+            <div className="grid grid-cols-1 gap-1 mb-0 ">
+              <div
+                className="grid grid-cols-3 gap-1 mb-0 "
+                style={{ display: "flex" }}
+              >
+                <div className="mt-0 max-w-xsm align-middle text-center rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
+                  <IndexedOn
+                    value={67}
+                    where="GOOGLE SCHOLAR"
+                    color="#252973"
+                  />
+                </div>
+                <div className="mt-0 max-w-xsm align-middle text-center rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
+                  <IndexedOn value={43} where="SCOPUS" color="#252973" />
+                </div>
+                <div className="mt-0 max-w-xsm align-middle text-center rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
+                  <IndexedOn
+                    value={64}
+                    where="OPEN ACCESS JOURNAL"
+                    color="#252973"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-1 mt-2 mb-0 ">
+              <div className="mt-0 mb-0 max-w-xsm align-middle text-center rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
                 <div className="p-5">
                   <h5
                     className="mb-2 text-xs tracking-tight text-gray-900 dark:text-white"
@@ -501,41 +522,117 @@ const DashboardMain = () => {
                     Journals Disciplines Distribution
                   </h5>
 
-                  <DonutChart data={data} />
+                  <DisciplinesDonutChart data={data} />
                 </div>
               </div>
-              <div className="mt-4 max-w-xsm align-middle text-center rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
+              <div className="mt-0 mb-0 max-w-xsm align-middle text-center rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
                 <div className="p-5">
                   <h5
-                    className="mb-2 text-xs tracking-tight text-gray-900 dark:text-white"
+                    className="mb-0 text-xs tracking-tight text-gray-900 dark:text-white"
                     style={{ color: "#585859" }}
                   >
                     Journals Language Distribution
                   </h5>
 
                   <p
-                    className="mb-3 font-normal text-gray-700 dark:text-gray-400"
-                    style={{ color: "#7DB8DA", fontSize: "3rem" }}
+                    className="mb-0 font-normal text-gray-700 dark:text-gray-400"
+                    style={{ color: "#6762B4", fontSize: "3rem" }}
                   >
-                    <LanguagesBarChart data={data} />
+                    <LanguagesPieChart data={data} />
+
+                    {/* <img src = "https://quickchart.io/chart?c={type:'bar',data:{labels:[2012,2013,2014,2015, 2016],datasets:[{label:'Users',data:[120,60,50,180,120]}]}}"/> */}
                   </p>
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-1 ">
-              <div className="mt-4 max-w-xsm align-middle text-center rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
-                <div className="p-5">
-                  <h5
-                    className="mb-2 text-xs tracking-tight text-gray-900 dark:text-white"
-                    style={{ color: "#585859" }}
-                  >
-                    Journals Countries Distribution
-                  </h5>
+          </div>
+        </div>
 
-                  <CountriesChart data={data} />
-                </div>
-              </div>
+        {/* Third Row content */}
+
+        <div className="gap-1 " style={{ display: "inline-flex" }}>
+         
+
+          <div className="mt-4 max-w-xsm align-middle text-center rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
+            <div className="p-5">
+              <h5
+                className="mb-2 text-xs tracking-tight text-gray-900 dark:text-white"
+                style={{ color: "#585859" }}
+              >
+                OPEN ACCESS JOURNAL
+              </h5>
             </div>
+            <img className="mb-4"
+              src={`https://quickchart.io/chart?c={type:'radialGauge',data:{datasets:[{data:[${172394}],backgroundColor:'MidnightBlue'}]}}`}
+            />
+          </div>
+          <div className="mt-4 max-w-xsm align-middle text-center rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
+            <div className="p-5">
+              <h5
+                className="mb-2 text-xs tracking-tight text-gray-900 dark:text-white"
+                style={{ color: "#585859" }}
+              >
+                HOSTED ON INASP'S JOURNAL ONLINE
+              </h5>
+            </div>
+            <img className="mb-4"
+              src={`https://quickchart.io/chart?c={type:'radialGauge',data:{datasets:[{data:[${1,794}],backgroundColor:'MidnightBlue'}]}}`}
+            />
+          </div>
+          <div className="mt-4 max-w-xsm align-middle text-center rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
+            <div className="p-5">
+              <h5
+                className="mb-2 text-xs tracking-tight text-gray-900 dark:text-white"
+                style={{ color: "#585859" }}
+              >
+                ONLINE PUBLISHER BASED IN AFRICA
+              </h5>
+            </div>
+            <img className="mb-4"
+              src={`https://quickchart.io/chart?c={type:'radialGauge',data:{datasets:[{data:[${394}],backgroundColor:'MidnightBlue'}]}}`}
+            />
+          </div>
+          <div className="mt-4 max-w-xsm align-middle text-center rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
+            <div className="p-5">
+              <h5
+                className="mb-2 text-xs tracking-tight text-gray-900 dark:text-white"
+                style={{ color: "#585859" }}
+              >
+                DIRECTORY OF OPEN ACCESS (DOAJ)
+                
+
+
+              </h5>
+            </div>
+            <img className="mb-4"
+              src={`https://quickchart.io/chart?c={type:'radialGauge',data:{datasets:[{data:[${94}],backgroundColor:'MidnightBlue'}]}}`}
+            />
+          </div>
+          <div className="mt-4 max-w-xsm align-middle text-center rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
+            <div className="p-5">
+              <h5
+                className="mb-2 text-xs tracking-tight text-gray-900 dark:text-white"
+                style={{ color: "#585859" }}
+              >
+                PUBLISHER IS A MEMBER OF COPE
+              </h5>
+            </div>
+            <img className="mb-4"
+              src={`https://quickchart.io/chart?c={type:'radialGauge',data:{datasets:[{data:[${34}],backgroundColor:'MidnightBlue'}]}}`}
+            />
+          </div>
+          <div className="mt-4 max-w-xsm align-middle text-center rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
+            <div className="p-5">
+              <h5
+                className="mb-2 text-xs tracking-tight text-gray-900 dark:text-white"
+                style={{ color: "#585859" }}
+              >
+                ON ISSN PORTAL
+              </h5>
+            </div>
+            <img className="mb-4"
+              src={`https://quickchart.io/chart?c={type:'radialGauge',data:{datasets:[{data:[${94}],backgroundColor:'MidnightBlue'}]}}`}
+            />
           </div>
         </div>
 
