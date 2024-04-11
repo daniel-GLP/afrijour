@@ -550,8 +550,7 @@ const DashboardMain = () => {
 
         {/* Third Row content */}
 
-        <div className="gap-1 " style={{ display: "inline-flex" }}>
-         
+        <div className="gap-1 " style={{ display: "inline-flex" }}>         
 
           <div className="mt-4 max-w-xsm align-middle text-center rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
             <div className="p-5">
