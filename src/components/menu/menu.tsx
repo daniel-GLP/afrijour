@@ -2,10 +2,10 @@ import MenuItem from "@/components/menu/menu-item";
 
 const MENU_ITEMS = [
   { name: "Home", to: "/" },
-  { name: "Contact Us", to: "/contact" },
-  { name: "About Us", to: "/about" },
+  { name: "Reach Out", to: "/contact" },
+  { name: "Who We Are", to: "/about" },
   { name: "Resources", to: "/resources" },
-  { name: "Support", to: "/support" },
+  { name: "Need Help?", to: "/support" },
 ];
 
 function Menu({ className }: { className?: string }) {
