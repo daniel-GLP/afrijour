@@ -9,7 +9,7 @@ function AboutPage() {
   return (
     <Layout>
       <Article
-        title="About Us"
+        title="Who We Are"
         imageAlt="Lorem Picsum"
         imageSrc="https://picsum.photos/420/640?grayscale"
       >

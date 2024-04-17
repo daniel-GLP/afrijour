@@ -6,7 +6,7 @@ export default function ContactPage() {
     <Layout>
       
       <Article
-        title="Contact Us"
+        title="Get in Touch"
         imageAlt="Lorem Picsum"
         imageSrc="https://picsum.photos/420/640?grayscale"
       >
